@@ -47,6 +47,7 @@ public class BaseTest {
         driver.get ("https://bbb.testpro.io/");
     }
 
+
     public static void provideEmail (String email) {
         WebElement emailField = driver.findElement (By.cssSelector ("[type = 'email']"));
         emailField.click ();
@@ -66,41 +67,8 @@ public class BaseTest {
     }
 
 
-    @BeforeMethod
 
-    public void launchBrowser() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-
-        driver = new ChromeDriver (options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-    }
-
-@AfterMethod
-
- public void closeBrowser() {
-    driver.quit();
-}
-
-public static void navigateToPage(){
-        driver.get(url);
-}
-    public static void openLoginUrl(){
-            driver.get("https://bbb.testpro.io/");
-    }
-
-    public static void enterEmail(String email){
-            WebElement emailField = driver.findElement(By.cssSelector("[type = 'email']"));
-            emailField.click();
-            emailField.clear();
-            emailField.sendKeys(email);
         }
 
-    public static void enterPassword(String password){
-            WebElement passwordField = driver.findElement(By.cssSelector("[type = 'password']"));
-          passwordField.click();
-          passwordField.clear();
-          passwordField.sendKeys(password);
-        }
-}
+
+
