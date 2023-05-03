@@ -10,7 +10,7 @@ public class Homework17 extends BaseTest {
     public void addSongToPlaylist () throws InterruptedException {
 
         navigateToPage ();
-        provideEmail ("demo@testpro.io");
+        provideEmail ("demo@class.com");
         providePassword ("te$t$tudent");
         clickSubmit ();
         Thread.sleep (2000);

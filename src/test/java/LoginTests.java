@@ -22,4 +22,18 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
+    /*@Test
+    public void LoginValidEmailPasswordTest(){
+
+        navigateToPage ();
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit ();
+        avatarIsDisplayed();
+
+
+    }*/
+
+
+
 }
