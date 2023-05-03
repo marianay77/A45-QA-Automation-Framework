@@ -10,7 +10,7 @@ public class Homework17 extends BaseTest {
     public void addSongToPlaylist () throws InterruptedException {
 
         navigateToPage ();
-        provideEmail ("demo@testpro.io");
+        provideEmail ("demo@class.com");
         providePassword ("te$t$tudent");
         clickSubmit ();
         Thread.sleep (2000);
@@ -53,8 +53,6 @@ public class Homework17 extends BaseTest {
         WebElement choosePlaylist = driver.findElement (By.xpath ("//section[@id='songResultsWrapper'] //li[contains(text(),'Mara2023')]"));
         choosePlaylist.click ();
         Thread.sleep (2000);
-
-
 
             WebElement notifMsg = driver.findElement (By.cssSelector ("div.success.show"));
             Assert.assertTrue (notifMsg.getText ().contains ("Added 1 song into Mara2023"));
