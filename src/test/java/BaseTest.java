@@ -5,15 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 import java.time.Duration;
 public class BaseTest {
 
     public static WebDriver driver = null;
-    public static String url = "https://bbb.testpro.io/";
+    public static String url = null;
 
 
     @BeforeSuite
@@ -23,13 +21,17 @@ public class BaseTest {
 
 
     @BeforeMethod
+    @Parameters({"BaseURL"})
 
-    public void launchBrowser () {
+    public void launchBrowser (String BaseURL) {
         ChromeOptions options = new ChromeOptions ();
         options.addArguments ("--remote-allow-origins=*");
 
         driver = new ChromeDriver (options);
         driver.manage ().timeouts ().implicitlyWait (Duration.ofSeconds (10));
+
+        url = BaseURL;
+        driver.get(url);
 
     }
 
@@ -64,6 +66,17 @@ public class BaseTest {
     public static void clickSubmit () {
         WebElement clickSubmit = driver.findElement (By.cssSelector ("button[type = 'submit']"));
         clickSubmit.click ();
+    }
+    @DataProvider(name = "incorrectLoginData")
+    public Object[][] getDataProvider(){
+        return new Object[][]{
+                {"invalid@email.com", "invalidPass"},
+                {"anyEmail.com",""},
+               {"", ""}
+
+
+        };
+
     }
 
 
