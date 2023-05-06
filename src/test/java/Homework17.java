@@ -55,7 +55,7 @@ public class Homework17 extends BaseTest {
         Thread.sleep (2000);
 
             WebElement notifMsg = driver.findElement (By.cssSelector ("div.success.show"));
-            Assert.assertTrue (notifMsg.getText ().contains ("Added 1 song into Mara2023"));
+            Assert.assertTrue (notifMsg.getText ().contains ("Added 1 song into Mara2023."));
 
 
 

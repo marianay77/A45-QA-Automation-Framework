@@ -49,7 +49,11 @@ public class BaseTest {
         driver.get ("https://bbb.testpro.io/");
     }
 
-
+    public static void login (String email, String password) {
+        provideEmail (email);
+        providePassword (password);
+        clickSubmit ();
+    }
     public static void provideEmail (String email) {
         WebElement emailField = driver.findElement (By.cssSelector ("[type = 'email']"));
         emailField.click ();
