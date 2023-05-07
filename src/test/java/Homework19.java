@@ -11,6 +11,7 @@ public class Homework19 extends BaseTest {
         login ("demo@class.com", "te$t$tudent");
         Thread.sleep (2000);
 
+
     }
     //WHEN
     public void openPlaylist () throws InterruptedException {
@@ -23,6 +24,7 @@ public class Homework19 extends BaseTest {
             deletePlaylistButton.click ();
             Thread.sleep (2000);
         }
+        
         //THEN
 
             public void notifMsg ()throws InterruptedException {
