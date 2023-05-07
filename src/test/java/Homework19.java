@@ -6,9 +6,11 @@ import org.testng.annotations.Parameters;
 public class Homework19 extends BaseTest {
     @Test()
     public void deletePlaylist () throws InterruptedException {
+
         //GIVEN
         login ("demo@class.com", "te$t$tudent");
         Thread.sleep (2000);
+
     }
     //WHEN
     public void openPlaylist () throws InterruptedException {
@@ -22,6 +24,7 @@ public class Homework19 extends BaseTest {
             Thread.sleep (2000);
         }
         //THEN
+
             public void notifMsg ()throws InterruptedException {
             WebElement notifMsg = driver.findElement (By.cssSelector ("div.success.show"));
             Assert.assertTrue (notifMsg.getText ().contains ("Deleted playlist 'Mara2023'."));
