@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -12,12 +15,14 @@ public class BaseTest {
 
     public static WebDriver driver = null;
     public static String url = null;
-
+    static WebDriverWait wait;
 
     @BeforeSuite
     static void setupClass () {
         WebDriverManager.chromedriver ().setup ();
     }
+
+
 
 
     @BeforeMethod
@@ -28,11 +33,10 @@ public class BaseTest {
         options.addArguments ("--remote-allow-origins=*");
 
         driver = new ChromeDriver (options);
+        wait = new WebDriverWait (driver,Duration.ofSeconds(4));
         driver.manage ().timeouts ().implicitlyWait (Duration.ofSeconds (10));
-
         url = BaseURL;
         driver.get(url);
-
     }
 
     @AfterMethod
@@ -51,20 +55,23 @@ public class BaseTest {
 
 
     public static void provideEmail (String email) {
-        WebElement emailField = driver.findElement (By.cssSelector ("[type = 'email']"));
-        emailField.click ();
+        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable (By.cssSelector ("[type = 'email']")));
+        //WebElement emailField = driver.findElement (By.cssSelector ("[type = 'email']"));
+        //emailField.click ();
         emailField.clear ();
         emailField.sendKeys (email);
     }
 
     public static void providePassword (String password) {
-        WebElement passwordField = driver.findElement (By.cssSelector ("[type = 'password']"));
+        WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable (By.cssSelector ("[type = 'password']")));
+        //WebElement passwordField = driver.findElement (By.cssSelector ("[type = 'password']"));
         passwordField.click ();
         passwordField.clear ();
         passwordField.sendKeys (password);
     }
     public static void clickSubmit () {
-        WebElement clickSubmit = driver.findElement (By.cssSelector ("button[type = 'submit']"));
+        WebElement clickSubmit = wait.until(ExpectedConditions.elementToBeClickable (By.cssSelector ("button[type = 'submit']")));
+       //WebElement clickSubmit = driver.findElement (By.cssSelector ("button[type = 'submit']"));
         clickSubmit.click ();
     }
     @DataProvider(name = "incorrectLoginData")
