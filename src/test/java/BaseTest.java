@@ -65,7 +65,7 @@ public class BaseTest {
     public static void providePassword (String password) {
         WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable (By.cssSelector ("[type = 'password']")));
         //WebElement passwordField = driver.findElement (By.cssSelector ("[type = 'password']"));
-        passwordField.click ();
+        //passwordField.click ();
         passwordField.clear ();
         passwordField.sendKeys (password);
     }
@@ -73,6 +73,12 @@ public class BaseTest {
         WebElement clickSubmit = wait.until(ExpectedConditions.elementToBeClickable (By.cssSelector ("button[type = 'submit']")));
        //WebElement clickSubmit = driver.findElement (By.cssSelector ("button[type = 'submit']"));
         clickSubmit.click ();
+    }
+
+    public void login (String email, String password){
+        provideEmail (email);
+        providePassword (password);
+        clickSubmit ();
     }
     @DataProvider(name = "incorrectLoginData")
     public Object[][] getDataProvider(){
