@@ -7,23 +7,13 @@ public class Homework19 extends BaseTest {
     @Test()
     public void deletePlaylist () throws InterruptedException {
 
-        //GIVEN
-
-        String deletedPlaylistMsg = "Deleted Playlist";
-
-        login ("demo@class.com", "te$t$tudent");
+        String deletedPlaylistMsg = "Deleted playlist";
+        login ("myakobov@gbmc.org", "te$t$tudent");
         Thread.sleep (2000);
-        
-        //WHEN
-
         openPlaylist ();
         deletePlaylistButton ();
         getDeletedPlaylistMsg ();
-
-        //THEN
-
-        Assert.assertTrue (getDeletedPlaylistMsg().contains("Deleted Playliist"));
-
+        Assert.assertTrue (getDeletedPlaylistMsg().contains(deletedPlaylistMsg));
     }
     public void openPlaylist () throws InterruptedException {
         WebElement openPlaylist = driver.findElement (By.xpath ("//section[@id='playlists'] //a[contains(text(), 'Mara2023')]"));
@@ -35,8 +25,6 @@ public class Homework19 extends BaseTest {
             deletePlaylistButton.click ();
             Thread.sleep (2000);
         }
-        
-
             public String getDeletedPlaylistMsg() {
             WebElement getDeletedPlaylistMsg = driver.findElement (By.cssSelector ("div.success.show"));
             return getDeletedPlaylistMsg.getText ();
