@@ -27,13 +27,14 @@ public class Homework21 extends BaseTest {
 
         playlistInputField.sendKeys (Keys.chord (Keys.CONTROL, "A", Keys.BACK_SPACE));
         playlistInputField.sendKeys (newPlaylistName);
+        playlistInputField.sendKeys (Keys.ENTER);
     }
     public boolean isPlaylistUpdated () {
-        wait.until (ExpectedConditions.visibilityOfElementLocated (By.cssSelector ("div.success.show")));
-        WebElement updatedPlaylist = driver.findElement (By.cssSelector ("div.success.show"));
+        wait.until (ExpectedConditions.visibilityOfElementLocated (By.xpath ("//a[text()='" + newPlaylistName + "']")));
+        WebElement updatedPlaylist = driver.findElement (By.xpath ("//a[text()='" + newPlaylistName + "']"));
         return updatedPlaylist.isDisplayed ();
     }
 }
 
 
-       // (By.xpath ("//a[text()='" + newPlaylistName + "']")));(By.xpath ("//a[text()='" + newPlaylistName + "']")));
+       
