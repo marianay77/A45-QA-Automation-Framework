@@ -1,4 +1,5 @@
 package Pages;
+<<<<<<< Updated upstream
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,3 +12,8 @@ public class HomePage extends BasePage{
       return findElement(userAvatarIcon);
    }
 }
+=======
+
+public class HomePage {
+}
+>>>>>>> Stashed changes
