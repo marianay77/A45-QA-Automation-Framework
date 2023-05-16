@@ -5,8 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 public class Homework21 extends BaseTest {
-    String newPlaylistName = "Updated playlist";
 
+    String newPlaylistName = "Updated playlist";
     @Test()
     public void renamePlaylist () {
 
@@ -38,3 +38,8 @@ public class Homework21 extends BaseTest {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+// (By.xpath ("//a[text()='" + newPlaylistName + "']")));
+>>>>>>> Stashed changes

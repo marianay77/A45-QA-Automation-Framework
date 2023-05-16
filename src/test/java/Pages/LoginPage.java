@@ -1,5 +1,6 @@
 package Pages;
 
+<<<<<<< Updated upstream
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,4 +44,7 @@ public void providePassword (String password){
     providePassword("te$t$tudent");
     clickSubmitBtn ();
     }
+=======
+public class LoginPage {
+>>>>>>> Stashed changes
 }

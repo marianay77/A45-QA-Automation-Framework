@@ -41,7 +41,6 @@ public class LoginTests extends BaseTest {
         clickSubmit ();
         Assert.assertEquals (driver.getCurrentUrl (), url);
     }
-
     @Test
     public void LoginValidEmailPasswordTestPOM () {
 
