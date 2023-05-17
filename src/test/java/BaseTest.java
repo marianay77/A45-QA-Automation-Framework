@@ -80,8 +80,8 @@ public class BaseTest {
     }
 
     public void login (String email, String password){
-        provideEmail (email);
-        providePassword (password);
+        provideEmail ("myakobov@gbmc.org");
+        providePassword ("te$t$tudent");
         clickSubmit ();
     }
     @DataProvider(name = "incorrectLoginData")
